@@ -1,0 +1,9 @@
+sequenceDiagram
+    User ->> bwenv: invoke "bwenv create ENV < SECRET.txt"
+    bwenv ->> bwenv: parse command-line argments
+    bwenv ->> bwenv: read stdin
+    bwenv ->> bwenv: create JSON
+    bwenv ->> bwenv: encode JSON
+    bwenv ->> bw: invoke "bw create item ${encodedJSON}"
+    bw ->> bwenv: return result
+    bwenv ->> User: return result
